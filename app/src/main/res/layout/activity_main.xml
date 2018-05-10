@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Sök efter bilder"
+        android:hint="Sök efter bilder"
         android:layout_marginStart="47dp"
         android:layout_marginTop="17dp"
         android:layout_alignParentTop="true"

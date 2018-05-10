@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/creatorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:text="Creator"
+        android:padding="8dp"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/likesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/creatorTextView"
+        android:text="Likes"
+        android:padding="8dp"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/viewsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/imageView"
+        android:text="Views"
+        android:padding="8dp"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/downloadsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/viewsTextView"
+        android:text="Downloads"
+        android:padding="8dp"
+        android:textColor="@android:color/black" />
+
+</RelativeLayout>
