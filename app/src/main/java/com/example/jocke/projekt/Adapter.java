@@ -1,6 +1,7 @@
 package com.example.jocke.projekt;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,16 @@ import java.util.ArrayList;
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     private Context mContext;
     private ArrayList<Picture> mPictureList;
+    private OnItemClickListener mListener;
+
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        mListener = listener;
+    }
 
     public Adapter(Context context, ArrayList<Picture> pictureList) {
         mContext = context;
@@ -42,12 +53,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         int views = currentPicture.getViews();
 
         Picasso.with(mContext).load(imageUrl).fit().centerInside().into(holder.imageView);
-        holder.imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Intent till ny aktivitet
-            }
-        });
+
         /*holder.creatorTextView.setText(creatorName);
         holder.likesTextView.setText("Likes: "+likes);
         holder.downloadsTextView.setText("Downloads: "+downloads);
@@ -74,6 +80,18 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             likesTextView = itemView.findViewById(R.id.likesTextView);
             viewsTextView = itemView.findViewById(R.id.viewsTextView);
             downloadsTextView = itemView.findViewById(R.id.downloadsTextView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (mListener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            mListener.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 }

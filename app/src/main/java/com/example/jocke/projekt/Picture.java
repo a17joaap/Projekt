@@ -7,13 +7,15 @@ package com.example.jocke.projekt;
 public class Picture {
     private String mUrl;
     private String mCreator;
+    private String mCreatorUrl;
     private int mViews;
     private int mDownloads;
     private int mLikes;
 
-    public Picture(String url, String creator, int views, int downloads, int likes) {
+    public Picture(String url, String creator, String creatorUrl, int views, int downloads, int likes) {
         mUrl = url;
         mCreator = creator;
+        mCreatorUrl = creatorUrl;
         mViews = views;
         mDownloads = downloads;
         mLikes = likes;
@@ -25,6 +27,10 @@ public class Picture {
 
     public String getCreator() {
         return mCreator;
+    }
+
+    public String getCreatorUrl() {
+        return mCreatorUrl;
     }
 
     public int getViews() {

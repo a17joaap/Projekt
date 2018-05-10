@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="20dp">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewDetail"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:src="@mipmap/ic_launcher" />
@@ -14,9 +15,9 @@
         android:id="@+id/creatorTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
-        android:text="Creator"
+        android:layout_below="@+id/imageViewDetail"
         android:padding="8dp"
+        android:text="Creator"
         android:textColor="@android:color/black" />
 
     <TextView
@@ -24,8 +25,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/creatorTextView"
-        android:text="Likes"
         android:padding="8dp"
+        android:text="Likes"
         android:textColor="@android:color/black" />
 
     <TextView
@@ -33,9 +34,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/imageView"
-        android:text="Views"
+        android:layout_below="@+id/imageViewDetail"
         android:padding="8dp"
+        android:text="Views"
         android:textColor="@android:color/black" />
 
     <TextView
@@ -44,8 +45,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/viewsTextView"
-        android:text="Downloads"
         android:padding="8dp"
+        android:text="Downloads"
         android:textColor="@android:color/black" />
 
 </RelativeLayout>
