@@ -42,10 +42,16 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         int views = currentPicture.getViews();
 
         Picasso.with(mContext).load(imageUrl).fit().centerInside().into(holder.imageView);
-        holder.creatorTextView.setText(creatorName);
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Intent till ny aktivitet
+            }
+        });
+        /*holder.creatorTextView.setText(creatorName);
         holder.likesTextView.setText("Likes: "+likes);
         holder.downloadsTextView.setText("Downloads: "+downloads);
-        holder.viewsTextView.setText("Views: "+views);
+        holder.viewsTextView.setText("Views: "+views);*/
     }
 
     @Override
