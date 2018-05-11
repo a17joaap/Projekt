@@ -35,7 +35,11 @@ public class MainActivity extends AppCompatActivity implements Adapter.OnItemCli
     private Adapter mAdapter;
     private ArrayList<Picture> mPictureList;
     private RequestQueue mRequestQueue;
-    private MenuItem menuItem;
+    private MenuItem searchItem;
+    private MenuItem filterItem;
+    private static String imageType;
+    private static String mOrientation;
+    private static Boolean mSafesearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +51,9 @@ public class MainActivity extends AppCompatActivity implements Adapter.OnItemCli
         mPictureList = new ArrayList<>();
         mRequestQueue = Volley.newRequestQueue(this);
 
+        imageType = "all";
+        mOrientation = "all";
+        mSafesearch = false;
     }
 
     @Override
@@ -78,8 +85,9 @@ public class MainActivity extends AppCompatActivity implements Adapter.OnItemCli
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
-        menuItem = menu.findItem(R.id.searchMenu);
-        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchItem = menu.findItem(R.id.searchMenu);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+        filterItem = menu.findItem(R.id.filterMenu);
 
         searchView.setOnQueryTextListener( new SearchView.OnQueryTextListener() {
             @Override
@@ -92,11 +100,20 @@ public class MainActivity extends AppCompatActivity implements Adapter.OnItemCli
                 return false;
             }
         });
+
+        filterItem.setOnMenuItemClickListener( new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                startActivity(new Intent(getApplicationContext(), FilterActivity.class));
+                return false;
+            }
+        });
+
         return true;
     }
 
     public void parseJSON(String searchTerm) {
-        String url = "https://pixabay.com/api/?key=8954619-7f011a57ce5ae185a502c4ecf&q="+searchTerm+"&image_type=photo";
+        String url = "https://pixabay.com/api/?key=8954619-7f011a57ce5ae185a502c4ecf&q="+searchTerm+"&image_type="+imageType+"&orientation="+mOrientation+"&safesearch="+mSafesearch;
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
@@ -147,5 +164,35 @@ public class MainActivity extends AppCompatActivity implements Adapter.OnItemCli
         intent.putExtra(CREATOR_URL, picture.getCreatorUrl());
 
         startActivity(intent);
+    }
+
+    public static void changeFilter(int type, int orientation, boolean safesearch) {
+
+        switch (type) {
+            case R.id.type_illustration:
+                imageType = "illustration";
+                break;
+            case R.id.type_photo:
+                imageType = "photo";
+                break;
+            case R.id.type_vector:
+                imageType = "vector";
+                break;
+            default: imageType = "all";
+        }
+
+        switch (orientation) {
+            case R.id.orientation_horizontal:
+                mOrientation = "horizontal";
+                break;
+            case R.id.orientation_vertical:
+                mOrientation = "vertical";
+                break;
+            default: mOrientation = "all";
+        }
+
+        mSafesearch = safesearch;
+
+
     }
 }

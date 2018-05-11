@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.jocke.projekt.FilterActivity" >
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="42dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginTop="42dp"
+        android:text="Filter"
+        android:textAlignment="center"
+        android:textSize="32dp"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/header"
+        android:layout_below="@+id/header"
+        android:layout_marginTop="32dp"
+        android:text="Image type"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Orientation"
+        android:textSize="16dp"
+        android:layout_above="@+id/typeGroup"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="50dp" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView3"
+        android:layout_below="@+id/textView3"
+        android:layout_marginStart="-6dp"
+        android:layout_marginTop="16dp"
+        android:id="@+id/typeGroup">
+
+        <RadioButton
+            android:id="@+id/type_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="All" />
+
+        <RadioButton
+            android:id="@+id/type_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Photo" />
+
+        <RadioButton
+            android:id="@+id/type_illustration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Illustration" />
+
+        <RadioButton
+            android:id="@+id/type_vector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vector" />
+
+    </RadioGroup>
+    <RadioGroup
+        android:id="@+id/orientationGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/typeGroup"
+        android:layout_alignStart="@+id/textView4">
+
+        <RadioButton
+            android:id="@+id/orientation_all"
+            android:checked="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All" />
+
+        <RadioButton
+            android:id="@+id/orientation_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Horizontal" />
+
+        <RadioButton
+            android:id="@+id/orientation_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vertical" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save and return"
+        android:layout_below="@+id/safesearchToggle"
+        android:layout_toEndOf="@+id/textView3"
+        android:layout_marginTop="31dp" />
+
+    <ToggleButton
+        android:id="@+id/safesearchToggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView4"
+        android:layout_below="@+id/typeGroup"
+        android:layout_marginEnd="51dp"
+        android:layout_marginTop="58dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="Safe Search "
+        android:layout_alignBaseline="@+id/safesearchToggle"
+        android:layout_alignBottom="@+id/safesearchToggle"
+        android:layout_toStartOf="@+id/safesearchToggle" />
+</RelativeLayout>

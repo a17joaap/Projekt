@@ -14,4 +14,8 @@
         android:title="home"
         app:showAsAction="always" />
 
+    <item android:id="@+id/filterMenu"
+        android:title="Search filter"
+        app:showAsAction="never" />
+
 </menu>

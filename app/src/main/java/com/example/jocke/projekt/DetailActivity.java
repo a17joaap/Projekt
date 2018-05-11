@@ -27,6 +27,7 @@ public class DetailActivity extends AppCompatActivity {
 
     private MenuItem searchItem;
     private MenuItem homeItem;
+    private MenuItem filterItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,7 @@ public class DetailActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         searchItem = menu.findItem(R.id.searchMenu);
+        filterItem = menu.findItem(R.id.filterMenu);
         homeItem = menu.findItem(R.id.homeMenu);
         homeItem.setOnMenuItemClickListener( new MenuItem.OnMenuItemClickListener() {
 
@@ -91,6 +93,15 @@ public class DetailActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        filterItem.setOnMenuItemClickListener( new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                startActivity(new Intent(getApplicationContext(), FilterActivity.class));
+                return false;
+            }
+        });
         return true;
     }
+
 }
