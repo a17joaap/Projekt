@@ -10,6 +10,8 @@ import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements Adapter.OnItemCli
     private RequestQueue mRequestQueue;
     private MenuItem searchItem;
     private MenuItem filterItem;
+    private MenuItem aboutItem;
     private static String imageType;
     private static String mOrientation;
     private static Boolean mSafesearch;
@@ -88,6 +91,8 @@ public class MainActivity extends AppCompatActivity implements Adapter.OnItemCli
         searchItem = menu.findItem(R.id.searchMenu);
         SearchView searchView = (SearchView) searchItem.getActionView();
         filterItem = menu.findItem(R.id.filterMenu);
+        aboutItem = menu.findItem(R.id.aboutMenu);
+
 
         searchView.setOnQueryTextListener( new SearchView.OnQueryTextListener() {
             @Override
@@ -105,6 +110,14 @@ public class MainActivity extends AppCompatActivity implements Adapter.OnItemCli
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
                 startActivity(new Intent(getApplicationContext(), FilterActivity.class));
+                return false;
+            }
+        });
+
+        aboutItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                Toast.makeText(MainActivity.this, "This app makes it easy for you to find pictures that are public domain, for your website, blog or video. ", Toast.LENGTH_LONG).show();
                 return false;
             }
         });

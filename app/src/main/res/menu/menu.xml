@@ -15,7 +15,11 @@
         app:showAsAction="always" />
 
     <item android:id="@+id/filterMenu"
-        android:title="Search filter"
+        android:title="Filter search"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/aboutMenu"
+        android:title="About this app"
         app:showAsAction="never" />
 
 </menu>
